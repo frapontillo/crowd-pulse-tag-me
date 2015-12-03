@@ -34,6 +34,7 @@ public class TagMeResponse {
 
     public class TagMeAnnotation {
         private String title;
+        private Double rho;
 
         public String getTitle() {
             return title;
@@ -41,6 +42,18 @@ public class TagMeResponse {
 
         public void setTitle(String title) {
             this.title = title;
+        }
+
+        public Double getRho() {
+            return rho;
+        }
+
+        public void setRho(Double rho) {
+            this.rho = rho;
+        }
+
+        public boolean isRhoHigherThan(Double minRho) {
+            return (minRho == null || rho >= minRho);
         }
     }
 }
