@@ -53,6 +53,10 @@ public class TagMeTagger extends IPlugin<Message, Message, TagMeTagger.TagMeConf
         return PLUGIN_NAME;
     }
 
+    @Override public IPlugin<Message, Message, TagMeConfig> getInstance() {
+        return new TagMeTagger();
+    }
+
     @Override public TagMeConfig getNewParameter() {
         return new TagMeConfig();
     }
