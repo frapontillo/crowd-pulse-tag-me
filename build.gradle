@@ -17,6 +17,7 @@
 plugins {
     id 'java'
     id 'maven'
+    id "com.github.frapontillo.switchdependencies" version "0.0.1-alpha.0"
 }
 
 sourceCompatibility = 1.8
@@ -32,6 +33,16 @@ repositories {
 }
 
 dependencies {
-    compile 'com.github.frapontillo:crowd-pulse-tag:0.0.1'
-    compile group: 'com.squareup.retrofit', name: 'retrofit', version: '1.9.0'
+    compile 'com.squareup.retrofit:retrofit:1.9.0'
+}
+
+switchDependencies {
+    develop {
+        truthy = {
+            compile project(':crowd-pulse-tag')
+        }
+        falsy = {
+            compile 'com.github.frapontillo:crowd-pulse-tag:0.0.1'
+        }
+    }
 }
